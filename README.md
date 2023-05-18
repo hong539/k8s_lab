@@ -5,11 +5,12 @@ k8s_lab with kind settinup an simple cluster
 
 * [Kubernetes playground](https://github.com/justmeandopensource/kubernetes)
 
-## prerequisite
+## prerequisite cli-tools
 
 * docker or podman
 * kind
 * kubectl
+* fzf
 * kubie
 
 ## setup
@@ -24,8 +25,25 @@ podman ps
 #check kubectl
 which kubectl
 
+kubectl version --short
+
 #check kubie
 which kubie
+
+#settinup kubie
+~/.kube/kubie.yaml
+
+cd ~/.kube/
+mkdir configs
+
+#add alias for kubie
+vim ~/.bashrc
+
+alias k='kubectl'
+alias kic='kubie ctx'
+alias kin='kubie ns'
+
+#vim .kube/config
 
 #check kind
 which kind
