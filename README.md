@@ -76,4 +76,11 @@ podman images
 #Test env
 # export KUBECONFIG=/home/hong/.kube/configs/hong-cluster.yaml
 env | grep "KUBECONFIG"
+
+#deploy single yaml to k8s
+kubectl apply -f ns.yaml --dry-run=server
+
+#deploy objects to k8s with kustomize and kubectl
+kustomize build . | kubectl apply -f - --dry-run=server
+kustomize build . | kubectl apply -f -
 ```
