@@ -33,7 +33,15 @@ kubectl version --short
 curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
 sudo mv kustomize /usr/local/bin/
 
-kustomize completion bash > /etc/bash_completion.d/kustomize
+#kustomize bash completion
+sudo -s
+kustomize completion bash > /usr/share/bash-completion/completions/kustomize
+exit
+sudo chown your_user_name /usr/share/bash-completion/completions/kustomize
+source ~/.bashrc
+
+#test kustomize build
+kustomize build deployment/hong-lab/base/
 
 #check kubie
 which kubie
