@@ -31,6 +31,7 @@ kubectl version --short
 which kubie
 
 #settinup kubie
+#check detials in kubie.yaml
 ~/.kube/kubie.yaml
 
 cd ~/.kube/
@@ -51,4 +52,7 @@ kind create --help
 kind create cluster --name hong-cluster --config kind-example.config.yaml
 kind get clusters
 kind get nodes --name hong-cluster
+
+#Test env
+# export KUBECONFIG=/home/hong/.kube/configs/hong-cluster.yaml
 ```
