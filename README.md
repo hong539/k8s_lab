@@ -4,12 +4,14 @@ k8s_lab with kind settinup an simple cluster
 ## good tips!
 
 * [Kubernetes playground](https://github.com/justmeandopensource/kubernetes)
+* [rbac](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 
 ## prerequisite cli-tools
 
 * docker or podman
 * kind
 * kubectl
+* kustomize
 * fzf
 * kubie
 
@@ -26,6 +28,12 @@ podman ps
 which kubectl
 
 kubectl version --short
+
+#kustomize
+curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+sudo mv kustomize /usr/local/bin/
+
+kustomize completion bash > /etc/bash_completion.d/kustomize
 
 #check kubie
 which kubie
@@ -49,10 +57,15 @@ alias kin='kubie ns'
 #check kind
 which kind
 kind create --help
+#According --config we will create an k8s cluster with 1 control-node and 2 work nodes
 kind create cluster --name hong-cluster --config kind-example.config.yaml
 kind get clusters
 kind get nodes --name hong-cluster
 
+#check container images
+podman images
+
 #Test env
 # export KUBECONFIG=/home/hong/.kube/configs/hong-cluster.yaml
+env | grep "KUBECONFIG"
 ```
