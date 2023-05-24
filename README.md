@@ -67,8 +67,18 @@ which kind
 kind create --help
 #According --config we will create an k8s cluster with 1 control-node and 2 work nodes
 kind create cluster --name hong-cluster --config kind-example.config.yaml
+
+#check cluster
 kind get clusters
 kind get nodes --name hong-cluster
+
+#Deletes one of [cluster]
+kind delete cluster --name hong-cluster
+
+#output
+# enabling experimental podman provider
+# Deleting cluster "hong-cluster" ...
+# Deleted nodes: ["hong-cluster-worker" "hong-cluster-worker2" "hong-cluster-control-plane"]
 
 #check container images
 podman images
