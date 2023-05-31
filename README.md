@@ -1,8 +1,9 @@
 # k8s_lab
 k8s_lab with kind settinup an simple cluster
 
-## good tips!
+## good guides and tips!
 
+* [k8s/components](https://kubernetes.io/docs/concepts/overview/components/)
 * [Kubernetes playground](https://github.com/justmeandopensource/kubernetes)
 * [rbac](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 
