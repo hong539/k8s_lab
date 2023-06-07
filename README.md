@@ -96,6 +96,15 @@ kustomize build . | kubectl apply -f - --dry-run=server
 kustomize build . | kubectl apply -f -
 ```
 
+## sub-systems
+
+* [metrics-server](https://github.com/kubernetes-sigs/metrics-server)
+
+```shell
+kubectl top nodes
+kubectl top pods
+```
+
 ## Important!!!
 
 == We're Using GitHub Under Protest ==
