@@ -99,8 +99,10 @@ kustomize build . | kubectl apply -f -
 ## sub-systems
 
 * [metrics-server](https://github.com/kubernetes-sigs/metrics-server)
+* [fluentbit](https://docs.fluentbit.io/manual/installation/kubernetes)
 
 ```shell
+#For test metrics-server
 kubectl top nodes
 kubectl top pods
 ```
