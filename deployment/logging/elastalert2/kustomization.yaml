@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: elasticalert2
+namespace: logging  
+
+commonLabels:
+  logging: elasticalert2
+
+resources:
+- deployment.yaml
+- service.yaml
+- configMap.yaml
