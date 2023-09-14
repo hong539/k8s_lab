@@ -6,15 +6,18 @@ k8s_lab with kind settinup an simple cluster
 * [k8s/components](https://kubernetes.io/docs/concepts/overview/components/)
 * [Kubernetes playground](https://github.com/justmeandopensource/kubernetes)
 * [rbac](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+* [install-bash-auto-completion](https://hhming.moe/post/install-bash-auto-completion/)
 
 ## prerequisite cli-tools
 
-* docker or podman
-* kind
-* kubectl
+* container runtime/engine, just choose one for kind
+    * [docker engine](https://docs.docker.com/engine/install/)
+    * [podman](https://podman.io/docs/installation#installing-on-linux)
+* [kind](https://kind.sigs.k8s.io/)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 * kustomize
-* fzf
-* kubie
+* [fzf](https://github.com/junegunn/fzf#using-linux-package-managers)
+* [kubie]()
 
 ## setup
 
@@ -28,7 +31,7 @@ podman ps
 #check kubectl
 which kubectl
 
-kubectl version --short
+kubectl version --client
 
 #kustomize
 curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
@@ -62,6 +65,12 @@ alias kic='kubie ctx'
 alias kin='kubie ns'
 
 #vim .kube/config
+
+#check bash
+${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion}/completions
+
+#install kind completion bash
+kind completion bash > ${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion}/completions/kind
 
 #check kind
 which kind
