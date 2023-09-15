@@ -7,6 +7,7 @@ k8s_lab with kind settinup an simple cluster
 * [Kubernetes playground](https://github.com/justmeandopensource/kubernetes)
 * [rbac](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 * [install-bash-auto-completion](https://hhming.moe/post/install-bash-auto-completion/)
+* [Spring Cloud for Microservices Compared to Kubernetes](https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes)
 
 ## prerequisite cli-tools
 
@@ -109,6 +110,8 @@ kustomize build . | kubectl apply -f -
 
 * [metrics-server](https://github.com/kubernetes-sigs/metrics-server)
 * [fluentbit](https://docs.fluentbit.io/manual/installation/kubernetes)
+* [Reloader](https://github.com/stakater/Reloader)
+* [https://docs.gitlab.com/runner/install/kubernetes.html](https://docs.gitlab.com/runner/install/kubernetes.html)
 
 ```shell
 #For test metrics-server
