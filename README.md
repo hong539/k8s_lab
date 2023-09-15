@@ -18,7 +18,7 @@ k8s_lab with kind settinup an simple cluster
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 * kustomize
 * [fzf](https://github.com/junegunn/fzf#using-linux-package-managers)
-* [kubie]()
+* [kubie](https://github.com/sbstp/kubie#installation)
 
 ## setup
 
@@ -108,10 +108,21 @@ kustomize build . | kubectl apply -f -
 
 ## sub-systems
 
+* [Ingress NGINX Controller](https://github.com/kubernetes/ingress-nginx/)
+    * [SSL Passthrough](https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/tls.md#ssl-passthrough)
+    * [Exposing TCP and UDP services](https://kubernetes.github.io/ingress-nginx/user-guide/exposing-tcp-udp-services/)
+    * [Exposing FastCGI Servers](https://kubernetes.github.io/ingress-nginx/user-guide/fcgi-services/)
+        * php-fpm nginx
+            * [PHP-FPM + Nginx on Kubernetes](https://stackoverflow.com/questions/49494602/php-fpm-nginx-on-kubernetes)
+            * [Has anyone been able to configure nginx-ingress -> fpm ? Been unable to configure this](https://github.com/kubernetes/ingress-nginx/issues/8207)
 * [metrics-server](https://github.com/kubernetes-sigs/metrics-server)
 * [fluentbit](https://docs.fluentbit.io/manual/installation/kubernetes)
 * [Reloader](https://github.com/stakater/Reloader)
-* [https://docs.gitlab.com/runner/install/kubernetes.html](https://docs.gitlab.com/runner/install/kubernetes.html)
+* [gitlab runner](https://docs.gitlab.com/runner/install/kubernetes.html)
+* [emqx-operator](https://github.com/emqx/emqx-operator)
+    * [Specify secrets for listeners TLS certificates](https://github.com/emqx/emqx-operator/issues/110)
+    * SSL/TLS TLS termination proxy part
+
 
 ```shell
 #For test metrics-server
