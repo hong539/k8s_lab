@@ -15,6 +15,7 @@ k8s_lab with kind settinup an simple cluster
 
 * container runtime/engine, just choose one for kind
     * [docker engine](https://docs.docker.com/engine/install/)
+        * [rootless](https://docs.docker.com/engine/security/rootless/#how-it-works)
     * [podman](https://podman.io/docs/installation#installing-on-linux)
 * [kind](https://kind.sigs.k8s.io/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
@@ -32,6 +33,7 @@ which podman
 podman ps
 
 #check kubectl
+#setting up for kubectl alilas
 which kubectl
 
 kubectl version --client
@@ -55,7 +57,10 @@ which kubie
 
 #settinup kubie
 #check detials in kubie.yaml
-~/.kube/kubie.yaml
+touch ~/.kube/kubie.yaml
+vim ~/.kube/kubie.yaml
+
+#copy and paster the template from 
 
 cd ~/.kube/
 mkdir configs
