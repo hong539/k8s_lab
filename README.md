@@ -1,13 +1,15 @@
 # k8s_lab
 k8s_lab with kind settinup an simple cluster
 
-## good guides and tips!
+## good guides and tips ...etc!
 
 * [k8s/components](https://kubernetes.io/docs/concepts/overview/components/)
 * [Kubernetes playground](https://github.com/justmeandopensource/kubernetes)
 * [rbac](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 * [install-bash-auto-completion](https://hhming.moe/post/install-bash-auto-completion/)
 * [Spring Cloud for Microservices Compared to Kubernetes](https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes)
+* [Re: [請益] 雲端技術是Java工程師的必備技能嗎](https://www.ptt.cc/bbs/Soft_Job/M.1694682456.A.435.html)
+* [架構師觀點: 你需要什麼樣的 CI / CD ?](https://columns.chicken-house.net/2017/08/05/what-cicd-do-you-need/#%E7%B5%90%E8%AB%96-%E5%9F%B7%E8%A1%8C%E6%9E%B6%E6%A7%8B%E8%88%87%E6%96%B9%E5%90%91)
 
 ## prerequisite cli-tools
 
