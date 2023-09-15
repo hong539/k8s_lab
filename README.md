@@ -3,13 +3,15 @@ k8s_lab with kind settinup an simple cluster
 
 ## good guides and tips ...etc!
 
+* [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)
+* [Service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
 * [k8s/components](https://kubernetes.io/docs/concepts/overview/components/)
-* [Kubernetes playground](https://github.com/justmeandopensource/kubernetes)
 * [rbac](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 * [install-bash-auto-completion](https://hhming.moe/post/install-bash-auto-completion/)
 * [Spring Cloud for Microservices Compared to Kubernetes](https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes)
 * [Re: [請益] 雲端技術是Java工程師的必備技能嗎](https://www.ptt.cc/bbs/Soft_Job/M.1694682456.A.435.html)
 * [架構師觀點: 你需要什麼樣的 CI / CD ?](https://columns.chicken-house.net/2017/08/05/what-cicd-do-you-need/#%E7%B5%90%E8%AB%96-%E5%9F%B7%E8%A1%8C%E6%9E%B6%E6%A7%8B%E8%88%87%E6%96%B9%E5%90%91)
+* [如何读懂火焰图？ Flamegraph](https://www.ruanyifeng.com/blog/2017/09/flame-graph.html)
 
 ## prerequisite cli-tools
 
@@ -129,7 +131,23 @@ kustomize build . | kubectl apply -f -
 * [emqx-operator](https://github.com/emqx/emqx-operator)
     * [Specify secrets for listeners TLS certificates](https://github.com/emqx/emqx-operator/issues/110)
     * SSL/TLS TLS termination proxy part
-
+* [nacos](https://nacos.io/zh-cn/docs/what-is-nacos.html)
+    * discovery each node nacos cluster mode 
+        * [dns issue for nacos cluser mode](https://github.com/nacos-group/nacos-k8s/issues?q=dns)
+    * [Kubernetes Nacos](https://nacos.io/zh-cn/docs/use-nacos-with-kubernetes.html)
+    * [nacos-k8s](https://github.com/nacos-group/nacos-k8s)
+        * [nacos-operator](https://github.com/nacos-group/nacos-k8s/blob/master/operator/README.md)
+* [kubevirt](https://kubevirt.io/)
+    * [Cloud Native Live: Making VMs a first-class citizen in Kubernetes with KubeVirt](https://youtu.be/vMYQeFJX0Dk)
+* [RabbitMQ](https://www.rabbitmq.com/kubernetes/operator/operator-overview.html)
+* [prometheus](https://prometheus.io/docs/prometheus/latest/installation/)
+    * [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus)
+* ELK(Elastic Search/Logstash/Kibana) stack or EFK(Elastic Search/fluentbit/Kibana) stack
+    * [Elastic Cloud on Kubernetes](https://www.elastic.co/downloads/elastic-cloud-kubernetes)
+        * [Quickstart](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html)
+    * [fluentbit](https://fluentbit.io/)
+        * [installation](https://docs.fluentbit.io/manual/installation/kubernetes#installation)
+    * [elastalert2](https://github.com/jertel/elastalert2)
 
 ```shell
 #For test metrics-server
