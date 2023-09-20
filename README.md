@@ -118,6 +118,12 @@ kustomize build . | kubectl apply -f - --dry-run=server
 kustomize build . | kubectl apply -f -
 ```
 
+## deployments/services
+
+* [local_library_website](https://github.com/hong539/local_library_website)
+* [SRS4](https://ossrs.net/lts/zh-cn/docs/v4/doc/introduction)
+
+
 ## sub-systems
 
 * [Ingress NGINX Controller](https://github.com/kubernetes/ingress-nginx/)
