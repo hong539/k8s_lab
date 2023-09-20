@@ -113,6 +113,9 @@ env | grep "KUBECONFIG"
 #deploy single yaml to k8s
 kubectl apply -f ns.yaml --dry-run=server
 
+#port-forward
+kubectl port-forward services/postgres-svc 9000:5432
+
 #deploy objects to k8s with kustomize and kubectl
 kustomize build . | kubectl apply -f - --dry-run=server
 kustomize build . | kubectl apply -f -
