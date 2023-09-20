@@ -3,6 +3,7 @@ k8s_lab with kind settinup an simple cluster
 
 ## good guides and tips ...etc!
 
+* [docker Language-specific guides](https://docs.docker.com/language/)
 * [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)
 * [Service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
 * [k8s/components](https://kubernetes.io/docs/concepts/overview/components/)
@@ -46,10 +47,9 @@ sudo mv kustomize /usr/local/bin/
 
 #kustomize bash completion
 sudo -s
-kustomize completion bash > /usr/share/bash-completion/completions/kustomize
-exit
-sudo chown your_user_name /usr/share/bash-completion/completions/kustomize
-source ~/.bashrc
+# kustomize completion bash > /usr/share/bash-completion/completions/kustomize
+kustomize completion bash > ${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion}/completions/kustomize
+exec bash
 
 #test kustomize build
 kustomize build deployment/hong-lab/base/
@@ -81,6 +81,9 @@ ${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion
 
 #install kind completion bash
 kind completion bash > ${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion}/completions/kind
+
+#Replace the shell with the given command
+exec bash
 
 #check kind
 which kind
