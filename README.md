@@ -22,9 +22,10 @@ k8s_lab with kind settinup an simple cluster
     * [podman](https://podman.io/docs/installation#installing-on-linux)
 * [kind](https://kind.sigs.k8s.io/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
-* kustomize
+* [kustomize](https://kubectl.docs.kubernetes.io/)
 * [fzf](https://github.com/junegunn/fzf#using-linux-package-managers)
 * [kubie](https://github.com/sbstp/kubie#installation)
+    * [Autocompletion](https://github.com/sbstp/kubie#autocompletion)
 
 ## setup
 
@@ -53,6 +54,13 @@ exec bash
 
 #test kustomize build
 kustomize build deployment/hong-lab/base/
+
+#install kubie
+wget https://github.com/sbstp/kubie/releases/download/v0.22.0/kubie-linux-amd64
+
+mv kubie-linux-amd64 kubie
+chmod +x kubie
+sudo mv kubie /usr/local/bin/
 
 #check kubie
 which kubie
