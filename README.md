@@ -67,16 +67,6 @@ sudo mv kubie /usr/local/bin/
 #check kubie
 which kubie
 
-#settinup kubie
-#check detials in kubie.yaml
-touch ~/.kube/kubie.yaml
-vim ~/.kube/kubie.yaml
-
-#copy and paster the template from 
-
-cd ~/.kube/
-mkdir configs
-
 #add alias for kubie
 vim ~/.bashrc
 
@@ -118,6 +108,9 @@ kind create --help
 cd architecture/
 kind create cluster --name hong-cluster --config kind-example.config.yaml
 
+#delete
+kind delete cluster --name hong-cluster
+
 #ERROR: failed to create cluster: running kind with rootless provider requires cgroup v2, see https://kind.sigs.k8s.io/docs/user/rootless/
 sudo vim /etc/default/grub
 #add this to /etc/default/grub
@@ -128,25 +121,27 @@ sudo update-grub
 
 #
 sudo mkdir -p /etc/systemd/system/user@.service.d/
-sudo touch /etc/systemd/system/user@.service.d/delegate.conf
-sudo vim /etc/systemd/system/user@.service.d/delegate.conf
-
-EOF
+cat <<EOF > /etc/systemd/system/user@.service.d/delegate.conf
 [Service]
 Delegate=yes
-END
-
+EOF
 
 #
-sudo touch /etc/modules-load.d/iptables.conf
-sudo vim /etc/modules-load.d/iptables.conf
-
-EOF
+cat <<EOF > /etc/modules-load.d/iptables.conf
 ip6_tables
 ip6table_nat
 ip_tables
 iptable_nat
-ENF
+EOF
+
+cat <<EOF > /etc/modules-load.d/test.conf
+ip6_tables
+ip6table_nat
+ip_tables
+iptable_nat
+EOF
+
+# echo "ip6_tables ip6table_nat ip_tables iptable_nat" | sudo tee /etc/modules-load.d/test.conf
 
 #check cluster
 kind get clusters
@@ -155,11 +150,60 @@ kind get nodes --name hong-cluster
 #Deletes one of [cluster]
 kind delete cluster --name hong-cluster
 
+#ops with kind cluster
+kic
+
+#leave with exit
+exit
+
+#settinup kubie with ~/.kube
+#check detials in kubie.yaml
+touch ~/.kube/kubie.yaml
+
+#copy and paste the yaml codes from k8s_lab/env/kubie.yaml
+vim ~/.kube/kubie.yaml
+
+mkdir -p ~/.kube/configs
+
+#mv config to configs and edit name
+mv ~/.kube/config ~/.kube/configs/kind-hong-cluster.yaml
+
+#test wuth uchan
+kic
+kin
+
+k create ns hong-lab
+k create ns uchan
+k create ns varnish-operator
+
 #output
 # enabling experimental podman provider
 # Deleting cluster "hong-cluster" ...
 # Deleted nodes: ["hong-cluster-worker" "hong-cluster-worker2" "hong-cluster-control-plane"]
+```
 
+```shell
+#Setting Up An Ingress Controller
+#src: https://kind.sigs.k8s.io/docs/user/ingress/#ingress-nginx
+#ingress
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=90s
+
+#test ingress
+#kin hong-lab
+kubectl apply -f https://kind.sigs.k8s.io/examples/ingress/usage.yaml  
+
+# should output "foo-app"
+curl localhost:38000/foo/hostname
+# should output "bar-app"
+curl localhost:38000/bar/hostname
+```
+
+```shell
 #check container images
 podman images
 
