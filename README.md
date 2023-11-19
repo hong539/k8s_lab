@@ -3,6 +3,12 @@ k8s_lab with kind settinup an simple cluster
 
 ## good guides and tips ...etc!
 
+* [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+    * [Access Modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
+    * [uchan/Installation](https://floens.github.io/uchan/installation.html)
+    * k8s NFS Output: mount.nfs: Operation not permitted
+    * [I was trying to create a pvc with RWX access mode in the kind cluster. I see an error that it is not supported.](https://github.com/kubernetes-sigs/kind/issues/2371)
+    * [Enable Simulation of automatically provisioned ReadWriteMany PVs](https://github.com/kubernetes-sigs/kind/issues/1487)
 * [docker Language-specific guides](https://docs.docker.com/language/)
 * [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)
 * [Service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
