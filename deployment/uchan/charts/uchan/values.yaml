@@ -13,7 +13,7 @@ uchan:
   siteUrl: "http://example.com"
   assetUrl: "http://example.com/static/"
 
-  mediaStorageClassName: ""
+  mediaStorageClassName: "nfs"
   mediaStorageSizeRequest: 10Gi
 
 varnish:

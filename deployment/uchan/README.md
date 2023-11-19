@@ -110,6 +110,7 @@ EOF
 #
 git clone https://github.com/floens/uchan
 cd uchan
+#start with helm
 helm install uchan charts/uchan/ -n uchan -f values.yaml
 helm uninstall uchan
 
@@ -118,4 +119,20 @@ docker build . -t uchan:latest -f Dockerfile
 kind load --name hong-cluster docker-image uchan:latest
 kubectl apply -f my-manifest-using-my-image:unique-tag
 
+
+#PVC ReadWriteMany problem
+#src: https://github.com/kubernetes-sigs/kind/issues/1487
+docker pull quay.io/kubernetes_incubator/nfs-provisioner
+kind  load --name hong-cluster docker-image quay.io/kubernetes_incubator/nfs-provisioner
+
+helm repo add stable https://charts.helm.sh/stable
+helm install nfs-provisioner stable/nfs-server-provisioner
+
+kubectl get storageclasses
+test "nfs"
+
+k describe pods uchan-5bcc54d476-wr2qv
+# Mounting arguments: -t nfs -o vers=3 10.96.130.114:/export/pvc-609874e7-57b9-4c2e-be5e-396134ebd356 /var/lib/kubelet/pods/8df25e85-22ef-448a-a096-337d28f9cf20/volumes/kubernetes.io~nfs/pvc-609874e7-57b9-4c2e-be5e-396134ebd356
+# Output: mount.nfs: Operation not permitted
+#   Warning  FailedMount  42s (x3 over 5m15s)  kubelet  Unable to attach or mount volumes: unmounted volumes=[uchan-media], unattached volumes=[], failed to process volumes=[]: timed out waiting for the condition
 ```
