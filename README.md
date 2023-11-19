@@ -21,6 +21,8 @@ k8s_lab with kind settinup an simple cluster
         * [rootless](https://docs.docker.com/engine/security/rootless/#how-it-works)
     * [podman](https://podman.io/docs/installation#installing-on-linux)
 * [kind](https://kind.sigs.k8s.io/)
+    * [[ Kube 43.2 ] Getting started with KinD | Local multi-node k8s cluster in Docker containers](https://youtu.be/kkW7LNCsK74)
+    * [如何在 Bash 安裝新的自動補齊手稿](https://hhming.moe/post/install-bash-auto-completion/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 * [kustomize](https://kubectl.docs.kubernetes.io/)
 * [fzf](https://github.com/junegunn/fzf#using-linux-package-managers)
@@ -85,19 +87,66 @@ alias kin='kubie ns'
 #vim .kube/config
 
 #check bash
-${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion}/completions
-
-#install kind completion bash
-kind completion bash > ${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion}/completions/kind
+mkdir -p ${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion}/completions
 
 #Replace the shell with the given command
 exec bash
 
+#install go
+wget https://go.dev/dl/go1.21.4.linux-amd64.tar.gz
+rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.21.4.linux-amd64.tar.gz
+exec bash
+
+go version
+which go
+
+#install kind
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+
 #check kind
 which kind
+
+#install kind completion bash
+kind completion bash > ${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion}/completions/kind
+
 kind create --help
+#creat local k8s cluster with config file
 #According --config we will create an k8s cluster with 1 control-node and 2 work nodes
+cd architecture/
 kind create cluster --name hong-cluster --config kind-example.config.yaml
+
+#ERROR: failed to create cluster: running kind with rootless provider requires cgroup v2, see https://kind.sigs.k8s.io/docs/user/rootless/
+sudo vim /etc/default/grub
+#add this to /etc/default/grub
+GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"
+
+#update
+sudo update-grub
+
+#
+sudo mkdir -p /etc/systemd/system/user@.service.d/
+sudo touch /etc/systemd/system/user@.service.d/delegate.conf
+sudo vim /etc/systemd/system/user@.service.d/delegate.conf
+
+EOF
+[Service]
+Delegate=yes
+END
+
+
+#
+sudo touch /etc/modules-load.d/iptables.conf
+sudo vim /etc/modules-load.d/iptables.conf
+
+EOF
+ip6_tables
+ip6table_nat
+ip_tables
+iptable_nat
+ENF
 
 #check cluster
 kind get clusters
