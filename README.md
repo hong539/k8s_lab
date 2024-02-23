@@ -3,6 +3,9 @@ k8s_lab with kind settinup an simple cluster
 
 ## good guides and tips ...etc!
 
+* [Need some explaination of kubectl stdin and pipe](https://stackoverflow.com/questions/54032336/need-some-explaination-of-kubectl-stdin-and-pipe)
+* [Why dig does not resolve K8s service by dns name while nslookup has no problems with it?](https://stackoverflow.com/questions/50668124/why-dig-does-not-resolve-k8s-service-by-dns-name-while-nslookup-has-no-problems)
+* [Workloads](https://kubectl.docs.kubernetes.io/guides/introduction/resources_controllers/#workloads)
 * [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
     * [Access Modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
     * [uchan/Installation](https://floens.github.io/uchan/installation.html)
