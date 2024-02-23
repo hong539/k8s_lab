@@ -226,6 +226,9 @@ kubectl port-forward services/postgres-svc 9000:5432
 #deploy objects to k8s with kustomize and kubectl
 kustomize build . | kubectl apply -f - --dry-run=server
 kustomize build . | kubectl apply -f -
+
+#test with ubuntu image
+kubectl run test-ubuntu --image=ubuntu --restart=Never -- sleep 1d
 ```
 
 ## deployments/services
