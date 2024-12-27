@@ -6,5 +6,5 @@ export PM_USER="terraform-prov@pve"
 export PM_PASS="password"
 
 #Creating the connection via username and API token
-export PM_API_TOKEN_ID="terraform-prov@pve!mytoken"
-export PM_API_TOKEN_SECRET="afcd8f45-acc1-4d0f-bb12-a70b0777ec11"
+export PM_API_TOKEN_ID='<username>@<realm>!<tokenid>'
+export PM_API_TOKEN_SECRET="<token_secret>"

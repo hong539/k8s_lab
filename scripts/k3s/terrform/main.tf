@@ -1,7 +1,23 @@
+terraform {
+  required_providers {
+    proxmox = {
+      source = "Telmate/proxmox"
+      version = "3.0.1-rc6"
+    }
+  }
+}
+
+provider "proxmox" {
+  # Configuration options
+  pm_api_url = "http://192.168.88.204:8006/api2/json"
+  pm_tls_insecure = true
+  pm_debug = true
+}
+
 resource "proxmox_vm_qemu" "cloudinit-example" {
   vmid        = 107
   name        = "test-terraform0"
-  target_node = "pve"
+  target_node = "homelab-r5-4500-04"
   agent       = 1
   cores       = 2
   memory      = 1024
@@ -12,8 +28,7 @@ resource "proxmox_vm_qemu" "cloudinit-example" {
   automatic_reboot = true
 
   # Cloud-Init configuration
-  cicustom   = "vendor=local:snippets/qemu-guest-agent.yml" # /var/lib/vz/snippets/qemu-guest-agent.yml
-  ciupgrade  = true
+  cicustom   = "vendor=local:snippets/qemu-guest-agent.yml" # /var/lib/vz/snippets/qemu-guest-agent.yml  
   nameserver = "1.1.1.1 8.8.8.8"
   ipconfig0  = "ip=192.168.1.10/24,gw=192.168.1.1,ip6=dhcp"
   skip_ipv6  = true
@@ -48,19 +63,8 @@ resource "proxmox_vm_qemu" "cloudinit-example" {
   }
 
   network {
+    id = 0
     bridge = "vmbr0"
     model  = "virtio"
-  }
-}
-
-terraform {
-  required_providers {
-    proxmox = {
-      source = "Telmate/proxmox"
-      version = ">=3.0.1rc4"
-      pm_api_url = "http://192.168.88.204:8006/api2/json"
-      pm_tls_insecure = true
-      pm_debug = true
-    }
   }
 }

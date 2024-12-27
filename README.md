@@ -51,7 +51,12 @@ k8s_lab with terrform/k3s/kind/minikube...etc tools to deploy an mini cluster on
 ## setup
 
 * k3s on proxmox witg terrform
-    * [terraform-proxmox-k3s](https://github.com/oobenland/terraform-proxmox-k3s/tree/main)
+    * [terraform/tutorials/docker-get-started/install-cli](https://developer.hashicorp.com/terraform/tutorials/docker-get-started/install-cli)
+    * [terraform/cli/commands](https://developer.hashicorp.com/terraform/cli/commands)    
+    * [terraform/language/providers/configuration](https://developer.hashicorp.com/terraform/language/providers/configuration)
+    * [terraform/language/providers/requirements](https://developer.hashicorp.com/terraform/language/providers/requirements)
+    * [terraform-provider-proxmox/issues/784](https://github.com/Telmate/terraform-provider-proxmox/issues/784)
+    * [terraform-proxmox-k3s](https://github.com/oobenland/terraform-proxmox-k3s/tree/main)    
 
 * kind
     * setup a kind cluster
