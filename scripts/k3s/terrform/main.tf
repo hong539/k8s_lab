@@ -1,5 +1,5 @@
 resource "proxmox_vm_qemu" "cloudinit-example" {
-  vmid        = 100
+  vmid        = 107
   name        = "test-terraform0"
   target_node = "pve"
   agent       = 1
@@ -58,6 +58,9 @@ terraform {
     proxmox = {
       source = "Telmate/proxmox"
       version = ">=3.0.1rc4"
+      pm_api_url = "http://192.168.88.204:8006/api2/json"
+      pm_tls_insecure = true
+      pm_debug = true
     }
   }
 }
