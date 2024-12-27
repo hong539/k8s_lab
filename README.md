@@ -50,23 +50,21 @@ k8s_lab with terrform/k3s/kind/minikube...etc tools to deploy an mini cluster on
 
 ## setup
 
+* k3s on proxmox witg terrform
+    * [terraform-proxmox-k3s](https://github.com/oobenland/terraform-proxmox-k3s/tree/main)
+
 * kind
-  * setup a kind cluster
-
-```shell
-bash scripts/kind/setup.sh
-```
-
-  * Setting Up An Ingress Controller
-
-```shell
-bash scripts/kind/ingress-nginx.sh
-```
-
-  * Test
-
-```shell
-bash scripts/kind/test.sh
+    * setup a kind cluster
+    ```shell
+    bash scripts/kind/setup.sh
+    ```
+    * Setting Up An Ingress Controller
+    ```shell
+    bash scripts/kind/ingress-nginx.sh
+    ```
+    * Test
+    ```shell
+    bash scripts/kind/test.sh
 ```
 
 ## deployments/services
