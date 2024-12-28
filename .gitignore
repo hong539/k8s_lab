@@ -60,3 +60,6 @@ terraform.rc
 
 #qcow2
 scripts/k3s/proxmox/debian-12-generic-amd64.qcow2
+
+#img
+scripts/k3s/proxmox/ubuntu-24.04-server-cloudimg-amd64.img
