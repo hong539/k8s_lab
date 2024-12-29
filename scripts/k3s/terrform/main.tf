@@ -21,7 +21,9 @@ resource "proxmox_vm_qemu" "k3s_server" {
   agent       = 1
   cores       = 2
   memory      = 4096
+  boot        = "order=scsi0"
   clone       = "ubuntu24-cloud-init" # The name of the template
+  scsihw      = "virtio-scsi-single"
   vm_state    = "running"
   automatic_reboot = true
 
