@@ -55,8 +55,8 @@ override.tf.json
 # example: *tfplan*
 
 # Ignore CLI configuration files
-.terraformrc
-terraform.rc
+**/.terraformrc
+**/terraform.rc
 
 #qcow2
 scripts/k3s/proxmox/debian-12-generic-amd64.qcow2
