@@ -4,6 +4,7 @@
 
 * Cloud-init:
   Snippets:
+  [proxmox/wiki/Cloud-Init_FAQ](https://pve.proxmox.com/wiki/Cloud-Init_FAQ)
   [Terraform/Telmate/proxmox/Creating a Snippet](https://registry.terraform.io/providers/Telmate/proxmox/latest/docs/guides/cloud-init%2520getting%2520started#creating-a-snippet)
   [Example cloud-config file](https://cloudinit.readthedocs.io/en/latest/explanation/about-cloud-config.html#example-cloud-config-file)
 
