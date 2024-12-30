@@ -70,7 +70,8 @@ k8s_lab with terrform/k3s/kind/minikube...etc tools to deploy an mini cluster on
     * Test
     ```shell
     bash scripts/kind/test.sh
-```
+    ```
+
 
 ## deployments/services
 
