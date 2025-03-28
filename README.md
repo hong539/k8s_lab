@@ -1,8 +1,10 @@
 # k8s_lab
 k8s_lab with terrform/k3s/kind/minikube...etc tools to deploy an mini cluster on Proxmox VE for development.
 
-## good guides and tips ...etc!
+## Docs/Tips/MISC...etc!
 
+* k0s
+    * [k0sproject.io/](https://k0sproject.io/)
 * [kubectl rollout](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/)
 * [kubectl cp](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp/)
 * [kubectl diff](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_diff/)
@@ -26,7 +28,6 @@ k8s_lab with terrform/k3s/kind/minikube...etc tools to deploy an mini cluster on
 * [Spring Cloud for Microservices Compared to Kubernetes](https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes)
 * [Re: [請益] 雲端技術是Java工程師的必備技能嗎](https://www.ptt.cc/bbs/Soft_Job/M.1694682456.A.435.html)
 * [架構師觀點: 你需要什麼樣的 CI / CD ?](https://columns.chicken-house.net/2017/08/05/what-cicd-do-you-need/#%E7%B5%90%E8%AB%96-%E5%9F%B7%E8%A1%8C%E6%9E%B6%E6%A7%8B%E8%88%87%E6%96%B9%E5%90%91)
-* [如何读懂火焰图？ Flamegraph](https://www.ruanyifeng.com/blog/2017/09/flame-graph.html)
 
 ## prerequisite cli-tools
 
